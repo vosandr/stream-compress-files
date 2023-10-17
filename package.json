@@ -1,0 +1,23 @@
+{
+  "name": "web-streams",
+  "version": "1.0.0",
+  "main": "./app.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "author": "Vosirandr <vosirandr@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "tsx app.ts"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.6",
+    "tsx": "^2.1.0",
+    "typescript": "^5.2.2",
+    "zlib": "^1.0.5"
+  }
+}
