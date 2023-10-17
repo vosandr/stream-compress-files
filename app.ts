@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { Readable, Transform } from 'stream';
+import { Readable, Transform, pipeline } from 'stream';
 
 // Readable stream - Read data from a file
 const readableStream = fs.createReadStream('classic.txt', 'utf8');
@@ -20,8 +20,13 @@ const transformStream = new Transform({
 const writableStream = fs.createWriteStream('compressed-tale.txt');
 
 // Pipe streams together
-readableStream.pipe(transformStream).pipe(writableStream);
+// readableStream.pipe(transformStream).pipe(writableStream);
 
+pipeline(
+  readableStream,
+  transformStream,
+  writableStream
+  )
 // Event handlers for completion and error
 writableStream.on('finish', () => {
   console.log('Compression complete.');
