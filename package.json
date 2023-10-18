@@ -12,12 +12,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "tsx app.ts"
+    "start": "tsx app2.ts"
   },
   "devDependencies": {
     "@types/node": "20.8.6",
     "tsx": "^2.1.0",
-    "typescript": "^5.2.2",
-    "zlib": "^1.0.5"
+    "typescript": "^5.2.2"
   }
 }

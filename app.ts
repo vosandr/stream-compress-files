@@ -2,7 +2,9 @@ import fs from 'fs';
 import { Readable, Transform, pipeline } from 'stream';
 
 // Readable stream - Read data from a file
-const readableStream = fs.createReadStream('classic.txt', 'utf8');
+const nodeReadable = fs.createReadStream('classic.txt', 'utf8')
+const webReadableStream = Readable.toWeb(nodeReadable);
+const reader = webReadableStream.getReader();
 
 // Transform stream - Modify the data if needed
 const transformStream = new Transform({
@@ -23,7 +25,7 @@ const writableStream = fs.createWriteStream('compressed-tale.txt');
 // readableStream.pipe(transformStream).pipe(writableStream);
 
 pipeline(
-  readableStream,
+  webReadableStream,
   transformStream,
   writableStream
   )
